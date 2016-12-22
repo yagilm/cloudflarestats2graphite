@@ -112,7 +112,7 @@ func sendtographite(res []byte) {
 		if timeserie.Until.After(Lasttimeserie) {
 			metrictime := timeserie.Until.Unix()
 			for key, value := range timeserie.Requests.HTTPStatusCodes {
-				key = fmt.Sprintf("stats.cloudflaretest.%s.%s", Config.zonedomain, key)
+				key = fmt.Sprintf("stats.cloudflare.%s.%s", Config.zonedomain, key)
 				Graphite.SendMetric(graphite.NewMetric(key, fmt.Sprintf("%d", value), metrictime))
 			}
 			// fmt.Println("sent smth to graphite")
