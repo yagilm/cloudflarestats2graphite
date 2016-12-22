@@ -127,7 +127,6 @@ func main() {
 	// infinite loop
 	for {
 		sendtographite(getzoneanalytics())
-		ticking := <-timer.C
-		_ = ticking // avoid "declared and not used"
+		<-timer.C
 	}
 }
